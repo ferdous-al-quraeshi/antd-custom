@@ -15,7 +15,7 @@ import {
 
 const { Header, Sider, Content } = Layout;
 
-const App = () => {
+const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
@@ -27,11 +27,10 @@ const App = () => {
           onClick: () => setCollapsed(!collapsed),
         })}
         <div className="logo">
-          {collapsed
-            ? <img src={logo} alt="logo" height={24} width='auto' />
-            : <><img src={logo} alt="logo" height={24} width='auto' />            
-              <span>xpense</span></>
-          }
+          <a href="/">
+            <img src={logo} alt="logo" height={24} width='auto' />            
+            <span className={collapsed ? 'logo_txt_hidden' : 'logo_txt'}>xpense</span>
+          </a>
         </div>
         <Menu
           theme="light"
